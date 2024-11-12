@@ -2,6 +2,7 @@
 require "user.lspservers"
 require "user.launch"
 require "user.options"
+require "user.autocmds"
 require "user.keymaps"
 require "user.terminal"
 
@@ -13,6 +14,12 @@ spec "user.treesitter"
 spec "user.lspconfig"
 spec "user.cmp"
 spec "user.telescope"
+spec "user.nvimtree"
+spec "user.lualine"
+spec "user.illuminate"
+spec "user.gitsigns"
+spec "user.toggleterm"
+
 require "user.lazy"
 
 local project_path = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":p:h:h:h")
@@ -21,10 +28,10 @@ local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 
 parser_config.svelte = {
     install_info = {
-        url = "C:/Users/esteban/forks/tree-sitter-svelte",
-        -- url = "https://github.com/este36/tree-sitter-svelte",
+        url = "/home/esteban/forks/tree-sitter-svelte",
+        branch = "fix-issue-14",
         files = {"src/parser.c", "src/scanner.c"},
-        maintainers = {"@este36"},
+        maintainers = {'@este36',},
     },
     filetype = "svelte"
 }

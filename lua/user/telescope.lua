@@ -1,6 +1,6 @@
 local M = {
   "nvim-telescope/telescope.nvim",
--- dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "mingw", lazy = true } },
+dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true } },
 }
 
 function M.config()

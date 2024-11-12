@@ -56,7 +56,7 @@ KEYMAP("n", "<leader>s", ":split <CR>", OPTS)
 KEYMAP("n", "<C-left>", ":vertical resize +3<CR>", OPTS)
 KEYMAP("n", "<C-Right>", ":vertical resize -3<CR>", OPTS)
 
-KEYMAP("n", "<Leader>e", ":Lex <CR>")
+-- KEYMAP("n", "<Leader>e", ":Lex <CR>")
 
 KEYMAP("i", "'", "''<left>", OPTS)
 KEYMAP("i", "\"", "\"\"<left>", OPTS)
