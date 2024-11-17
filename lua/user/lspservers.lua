@@ -6,5 +6,6 @@ LSP_SERVERS = {
     "lua_ls",
     "svelte",
     "ts_ls",
+    "intelephense",
 }
 

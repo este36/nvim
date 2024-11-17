@@ -1,7 +1,19 @@
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
-    vim.cmd "set formatoptions-=cro"
+    vim.cmd "set formatoptions-=c"
+    vim.cmd "set formatoptions-=r"
+    vim.cmd "set formatoptions-=o"
+    vim.cmd "set formatoptions-=b"
   end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "php",
+  callback = function()
+    -- Désactive l'indentexpr pour PHP (empêche l'utilisation de GetPhpIndent)
+    vim.opt_local.indentexpr = ""
+    vim.opt.autoindent = true
+    vim.opt.smartindent = true
+  end
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {

@@ -21,6 +21,9 @@ end
 
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
+  if client.format then
+      client.format.enable = false
+  end
 end
 
 function M.common_capabilities()
@@ -35,15 +38,16 @@ function M.config()
   local icons = require "user.icons"
 
   local default_diagnostic_config = {
-    signs = {
-      active = true,
-      values = {
-        { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-        { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-        { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
-      },
-    },
+--     signs = {
+--       active = true,
+--       values = {
+--         { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+--         { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+--         { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+--         { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+--       },
+--     },
+    signs = false;
     virtual_text = false,
     update_in_insert = false,
     underline = false,
