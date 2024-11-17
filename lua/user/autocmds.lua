@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Désactive l'indentexpr pour PHP (empêche l'utilisation de GetPhpIndent)
     vim.opt_local.indentexpr = ""
     vim.opt.autoindent = true
-    vim.opt.smartindent = true
+    vim.opt.cindent = true
   end
 })
 

@@ -38,20 +38,12 @@ function M.config()
   local icons = require "user.icons"
 
   local default_diagnostic_config = {
---     signs = {
---       active = true,
---       values = {
---         { name = "DiagnosticSignError", text = icons.diagnostics.Error },
---         { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
---         { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
---         { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
---       },
---     },
-    signs = false;
-    virtual_text = false,
-    update_in_insert = false,
-    underline = false,
-    severity_sort = true,
+    signs = false,  -- Désactive l'affichage des signes dans la marge
+    values = { name = "DiagnosticsSignError", text = icons.diagnostics.Error },
+    virtual_text = false,  -- Désactive l'affichage du texte virtuel
+    update_in_insert = false,  -- Ne met pas à jour les diagnostics pendant que tu es en mode Insert
+    severity_sort = true,  -- Trie les diagnostics par sévérité (erreurs en premier)
+    underline = true,  -- Sous-ligne les erreurs
     float = {
       focusable = true,
       style = "minimal",
@@ -61,8 +53,17 @@ function M.config()
       prefix = "",
     },
   }
-
+  
+  -- Applique la configuration de diagnostics
   vim.diagnostic.config(default_diagnostic_config)
+  
+  -- Maintenant, configure les diagnostics pour n'afficher que les erreurs
+  vim.diagnostic.config({
+    float = {
+      severity = { min = vim.diagnostic.severity.ERROR },  -- Affiche uniquement les erreurs dans la fenêtre flottante
+    },
+    underline = { severity = vim.diagnostic.severity.ERROR },  -- Affiche uniquement les erreurs sous forme de soulignement
+  })
 
   for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
