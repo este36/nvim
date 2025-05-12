@@ -2,6 +2,7 @@ KEYMAP = vim.keymap.set
 OPTS = { noremap = true, silent = true }
 
 KEYMAP("n", "<Space>", "", OPTS)
+--KEYMAP("n", ":", ":<C-f>", OPTS)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -63,7 +64,7 @@ KEYMAP("i", "\"", "\"\"<left>", OPTS)
 KEYMAP("i", "(", "()<left>", OPTS)
 KEYMAP("i", "[", "[]<left>", OPTS)
 KEYMAP("i", "{", "{}<left>", OPTS)
-KEYMAP("i", "/*", "/**/<left><left>", OPTS)
+-- KEYMAP("i", "/*", "/**/<left><left>", OPTS)
 
 KEYMAP("v", "<leader>r", "\"hy:%s/<C-r>h//g<left><left>", OPTS)
 KEYMAP("v", "<C-s>", ":sort<CR>", OPTS)

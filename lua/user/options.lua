@@ -31,7 +31,7 @@ vim.opt.splitright = true -- force all vertical splits to go to the right of cur
 vim.opt.swapfile = false -- creates a swapfile
 vim.opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.undofile = true -- enable persistent undo
-vim.opt.updatetime = 100 -- faster completion (4000ms default)
+vim.opt.updatetime = 50 -- faster completion (4000ms default)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.cursorline = true -- highlight the current line
 vim.opt.number = true -- set numbered lines
@@ -58,3 +58,10 @@ vim.opt.shortmess:append "c"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
+
+-- Créer une commande personnalisée pour ouvrir le fichier actuel dans Notepad++ à la ligne actuelle
+vim.api.nvim_create_user_command('OpenInNotepadPlusPlus', function()
+  local line = vim.fn.line('.')  -- Obtient la ligne actuelle
+  local file = vim.fn.expand('%')  -- Obtient le chemin du fichier actuel
+  vim.cmd('!start notepad++ -n' .. line .. ' ' .. vim.fn.shellescape(file))  -- Ouvre Notepad++ à cette ligne
+end, {})

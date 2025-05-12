@@ -86,6 +86,8 @@ function M.config()
 
     if server == "lua_ls" then
       require("neodev").setup {}
+	elseif server == "omnisharp" then
+		cmd = {"C:\\Users\\esteban\\Local\\omnisharp-win-x64\\omnisharp.exe", "--hostPID", tostring(vim.fn.getpid())}
     end
 
     lspconfig[server].setup(opts)
