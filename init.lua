@@ -48,7 +48,7 @@ for _, query_file in ipairs(query_files) do
     vim.treesitter.set_query("svelte", query_name, query_content)
 end
 
-require'lspconfig'.omnisharp.setup{
+require'lspconfig'.omnisharp.setup {
   cmd = {"C:\\Users\\esteban\\Local\\omnisharp-win-x64\\OmniSharp.exe", "--hostPID", tostring(vim.fn.getpid())},
 }
 

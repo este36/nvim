@@ -5,6 +5,8 @@ local M = {
 
 function M.config()
   require("illuminate").configure {
+    delay = 600,
+    min_count_to_highlight = 2,
     filetypes_denylist = {
       "mason",
       "harpoon",
