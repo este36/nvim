@@ -12,6 +12,7 @@ function M.config()
     hijack_netrw = false,
     sync_root_with_cwd = true,
     view = {
+      width = 40,
       relativenumber = true,
     },
     renderer = {

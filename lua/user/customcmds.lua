@@ -18,8 +18,3 @@ end, {})
 vim.api.nvim_create_user_command("Config", function()
     vim.cmd('exe \'e \' . g:config')
 end, {})
-
-vim.api.nvim_create_user_command("CP", function()
-  local current_project = vim.fn.system("echo $CP"):gsub("\n", "")
-    vim.cmd("cd " .. current_project)
-end, {})
