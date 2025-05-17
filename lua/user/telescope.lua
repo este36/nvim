@@ -9,6 +9,7 @@ function M.config()
   KEYMAP("n", "<leader>fb", "<CMD> Telescope git_branches <CR>", OPTS)
   KEYMAP("n", "<leader>fc", "<CMD> Telescope colorscheme <CR>", OPTS)
   KEYMAP("n", "<leader>ff", "<CMD> Telescope find_files <CR>", OPTS)
+  KEYMAP("n", "<leader>fd", "<CMD> Telescope diagnostics <CR>", OPTS)
   KEYMAP("n", "<leader>fp", "<CMD> lua require('telescope').extensions.projects.projects() <CR>", OPTS)
   KEYMAP("n", "<leader>ft", "<CMD> Telescope live_grep <CR>", OPTS)
   KEYMAP("n", "<leader>fh", "<CMD> Telescope help_tags <CR>", OPTS)
@@ -20,6 +21,11 @@ function M.config()
 
   require("telescope").setup {
     defaults = {
+      file_ignore_patterns = { 
+          "node_modules/",
+          "package-lock.json",
+          "favicon.ico"
+      },
       prompt_prefix = icons.ui.Telescope .. " ",
       selection_caret = icons.ui.Forward .. " ",
       entry_prefix = "   ",

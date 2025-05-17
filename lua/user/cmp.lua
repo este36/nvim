@@ -40,7 +40,13 @@ function M.config()
       },
       -- Accept currently selected item. If none selected, `select` first item.
       -- Set `select` to `false` to only confirm explicitly selected items.
-      ["<CR>"] = cmp.mapping.confirm { select = true },
+      ["<CR>"] = cmp.mapping(function(fallback)
+          if cmp.visible() and cmp.get_active_entry() then
+            cmp.confirm({ select = true }) 
+          else
+            fallback()
+          end
+        end, {"i", "s"}),
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -51,20 +57,14 @@ function M.config()
           fallback()
           -- require("neotab").tabout()
         end
-      end, {
-        "i",
-        "s",
-      }),
+      end, { "i", "s", }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         else
           fallback()
         end
-      end, {
-        "i",
-        "s",
-      }),
+      end, { "i", "s", }),
     },
     formatting = {
       fields = { "kind", "abbr", "menu" },

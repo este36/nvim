@@ -1,3 +1,4 @@
+vim.opt.shadafile = "NONE"
 vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
 vim.opt.langmenu = "en_US.UTF-8"
 --vim.opt.guifont = "Iosevka:h17"
@@ -30,7 +31,7 @@ vim.opt.splitbelow = true -- force all horizontal splits to go below current win
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
 vim.opt.swapfile = false -- creates a swapfile
 vim.opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
-vim.opt.undofile = true -- enable persistent undo
+-- vim.opt.undofile = true -- enable persistent undo
 vim.opt.updatetime = 50 -- faster completion (4000ms default)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.cursorline = false -- highlight the current line
@@ -41,7 +42,7 @@ vim.opt.ruler = false
 vim.opt.relativenumber = true -- set relative numbered lines
 -- vim.opt.numberwidth = 4 -- set number column width {default 4}
 -- vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
-vim.opt.wrap = false -- display lines as one long line
+vim.opt.wrap = true -- display lines as one long line
 vim.opt.scrolloff = 4
 vim.opt.sidescrolloff = 8
 vim.opt.completeopt = { "menuone", "noselect" }
@@ -58,10 +59,3 @@ vim.opt.shortmess:append "c"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
-
--- Créer une commande personnalisée pour ouvrir le fichier actuel dans Notepad++ à la ligne actuelle
-vim.api.nvim_create_user_command('OpenInNotepadPlusPlus', function()
-  local line = vim.fn.line('.')  -- Obtient la ligne actuelle
-  local file = vim.fn.expand('%')  -- Obtient le chemin du fichier actuel
-  vim.cmd('!start notepad++ -n' .. line .. ' ' .. vim.fn.shellescape(file))  -- Ouvre Notepad++ à cette ligne
-end, {})

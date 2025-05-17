@@ -18,7 +18,6 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 end
-
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   if client.format then
