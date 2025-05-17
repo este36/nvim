@@ -1,5 +1,4 @@
 vim.g.config = "/home/esteban/.config/nvim/init.lua"
-vim.g.cp = "/home/esteban/este36/musicxml-irealpro/mxl2irp-client/"
 
 require "user.lspservers"
 require "user.launch"

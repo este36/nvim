@@ -7,6 +7,6 @@ LSP_SERVERS = {
     "lua_ls",
     -- "svelte",
     "ts_ls",
-    "tailwindcss"
+    -- "tailwindcss"
     -- "intelephense",
 }
