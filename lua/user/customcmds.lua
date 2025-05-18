@@ -16,5 +16,5 @@ vim.api.nvim_create_user_command("Files", function()
 end, {})
 
 vim.api.nvim_create_user_command("Config", function()
-    vim.cmd('exe \'e \' . g:config')
+    vim.cmd('exe \'e \' . $MYVIMRC')
 end, {})

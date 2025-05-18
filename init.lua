@@ -1,5 +1,3 @@
-vim.g.config = "/home/esteban/.config/nvim/init.lua"
-
 require "user.lspservers"
 require "user.launch"
 require "user.options"
