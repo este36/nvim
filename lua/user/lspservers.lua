@@ -1,5 +1,6 @@
 LSP_SERVERS = {
-	-- "omnisharp"
+	-- "omnisharp",
+    "clangd",
     "emmet_language_server",
     "cssls",
     "html",

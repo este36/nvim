@@ -18,3 +18,14 @@ end, {})
 vim.api.nvim_create_user_command("Config", function()
     vim.cmd('exe \'e \' . $MYVIMRC')
 end, {})
+
+vim.api.nvim_create_user_command("ToggleMouse", function()
+  local current = vim.o.mouse
+  if current == "" then
+    vim.o.mouse = "a"
+    print("Mouse enabled")
+  else
+    vim.o.mouse = ""
+    print("Mouse disabled")
+  end
+end, {})

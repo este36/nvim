@@ -51,7 +51,9 @@ KEYMAP("n", "<leader>v", ":vsplit ", OPTS)
 KEYMAP("n", "<leader>s", ":split ", OPTS)
 
 KEYMAP("n", "<leader>d", ":bd!<CR>", OPTS)
+
 KEYMAP("n", "<leader>c", ":Cmd ", OPTS)
+KEYMAP("n", "<leader>m", ":ToggleMouse<CR>", OPTS)
 
 KEYMAP("n", "<C-left>", ":vertical resize +3<CR>", OPTS)
 KEYMAP("n", "<C-Right>", ":vertical resize -3<CR>", OPTS)
