@@ -19,7 +19,8 @@ spec "user.lualine"
 spec "user.illuminate"
 spec "user.gitsigns"
 spec "user.toggleterm"
---spec "user.vim-visual-multi"
+-- spec "user.bufferline"
+-- spec "user.vim-visual-multi"
 
 require "user.lazy"
 

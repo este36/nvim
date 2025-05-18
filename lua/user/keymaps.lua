@@ -43,6 +43,7 @@ KEYMAP("n", "<leader>r", ":source %<CR>")
  -- KEYMAP("n", "<leader>x", "<cmd>!chmod +x %<CR>")
 
 KEYMAP("n", "<leader>t", ":tabnew<CR>", OPTS)
+KEYMAP("n", "<leader>T", ":tabnew<CR>:term<CR>i", OPTS)
 KEYMAP("n", "<leader>j", ":tabprevious<CR>", OPTS)
 KEYMAP("n", "<leader>k", ":tabnext<CR>", OPTS)
 

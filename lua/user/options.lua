@@ -59,3 +59,32 @@ vim.opt.shortmess:append "c"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
+
+vim.opt.tabline = "%!v:lua.TabLine()"
+
+function _G.TabLine()
+  local s = ''
+  local total_tabs = vim.fn.tabpagenr('$')
+
+  for i = 1, total_tabs do
+    local buflist = vim.fn.tabpagebuflist(i)
+    local win_idx = vim.fn.tabpagewinnr(i)
+    local buf = buflist[win_idx]
+
+    local name = '[No Name]'
+    local modified = ''
+    if buf and vim.fn.bufexists(buf) == 1 then
+      local bufname = vim.fn.bufname(buf)
+      name = bufname ~= '' and vim.fn.fnamemodify(bufname, ':t') or '[No Name]'
+      modified = vim.fn.getbufvar(buf, '&modified') == 1 and ' [+]' or ''
+    end
+
+    local is_current = (i == vim.fn.tabpagenr())
+    s = s .. '%' .. i .. 'T'
+    s = s .. (is_current and '%#TabLineSel#' or '%#TabLine#')
+    s = s .. ' ' .. name .. modified .. ' '
+  end
+
+  s = s .. '%#TabLineFill#%T'
+  return s
+end
