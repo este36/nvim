@@ -17,7 +17,10 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+--   keymap(bufnr, "n", "<m-d>", "<cmd>lua vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.WARN })<CR>", opts)
+  keymap(bufnr, "n", "<m-d>", "<cmd>lua vim.diagnostic.setqflist()<CR>", opts)
 end
+
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   if client.format then
@@ -55,13 +58,12 @@ function M.config()
   
   -- Applique la configuration de diagnostics
   vim.diagnostic.config(default_diagnostic_config)
-  
   -- Maintenant, configure les diagnostics pour n'afficher que les erreurs
   vim.diagnostic.config({
     float = {
-      severity = { min = vim.diagnostic.severity.ERROR },  -- Affiche uniquement les erreurs dans la fenêtre flottante
+       severity = { min = vim.diagnostic.severity.ERROR },
     },
-    underline = { severity = vim.diagnostic.severity.ERROR },  -- Affiche uniquement les erreurs sous forme de soulignement
+    underline = { severity = vim.diagnostic.severity.ERROR },
   })
 
   for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do

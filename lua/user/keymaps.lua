@@ -39,7 +39,7 @@ KEYMAP({ "n", "x" }, "k", "gk", OPTS)
 
 KEYMAP("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>:lua vim.notify('wrap: ' .. tostring(vim.wo.wrap))<CR>", OPTS)
 
-KEYMAP("n", "<leader>r", ":source %<CR>") 
+KEYMAP("n", "<leader>r", ":source %<CR>")
  -- KEYMAP("n", "<leader>x", "<cmd>!chmod +x %<CR>")
 
 KEYMAP("n", "<leader>t", ":tabnew<CR>", OPTS)
@@ -58,13 +58,22 @@ KEYMAP("n", "<C-Right>", ":vertical resize -3<CR>", OPTS)
 -- KEYMAP("n", "<Leader>e", ":Lex <CR>")
 
 KEYMAP("i", "'", "''<left>", OPTS)
+KEYMAP("i", "'<CR>", "'", OPTS)
+
 KEYMAP("i", "\"", "\"\"<left>", OPTS)
+KEYMAP("i", "\"<CR>", "\"", OPTS)
+
 KEYMAP("i", "(", "()<left>", OPTS)
 KEYMAP("i", "()", "()", OPTS)
+KEYMAP("i", "(<CR>", "(", OPTS)
+
 KEYMAP("i", "[", "[]<left>", OPTS)
 KEYMAP("i", "[]", "[]", OPTS)
+KEYMAP("i", "[<CR>", "[", OPTS)
+
 KEYMAP("i", "{", "{}<left>", OPTS)
-KEYMAP("i", "/*", "/**/<left><left>", OPTS)
+
+-- KEYMAP("i", "/*", "/**/<left><left>", OPTS)
 
 -- Stay in indent mode
 KEYMAP("v", "<", "<gv", OPTS)
