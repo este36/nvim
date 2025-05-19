@@ -72,6 +72,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 40 }
+    require("user.simple_clipboard").send(vim.fn.getreg('"'))
   end,
 })
 

@@ -17,6 +17,7 @@ end, {})
 
 vim.api.nvim_create_user_command("Config", function()
     vim.cmd('exe \'e \' . $MYVIMRC')
+    vim.cmd('cd ' .. vim.fn.fnamemodify(vim.fn.expand("$MYVIMRC"), ":p:h"))
 end, {})
 
 vim.api.nvim_create_user_command("ToggleMouse", function()
@@ -29,3 +30,7 @@ vim.api.nvim_create_user_command("ToggleMouse", function()
     print("Mouse disabled")
   end
 end, {})
+
+-- vim.api.nvim_create_user_command("SimpleClipboardSet", function()
+--     require("user.simple_clipboard").send()
+-- end, { range = true })

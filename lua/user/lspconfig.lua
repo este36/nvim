@@ -39,10 +39,11 @@ function M.config()
   local lspconfig = require "lspconfig"
   local icons = require "user.icons"
 
-  local default_diagnostic_config = {
+  vim.diagnostic.config({
     signs = false,  -- Désactive l'affichage des signes dans la marge
     values = { name = "DiagnosticsSignError", text = icons.diagnostics.Error },
     virtual_text = false,  -- Désactive l'affichage du texte virtuel
+    virtual_lines = false,
     update_in_insert = false,  -- Ne met pas à jour les diagnostics pendant que tu es en mode Insert
     severity_sort = true,  -- Trie les diagnostics par sévérité (erreurs en premier)
     underline = true,  -- Sous-ligne les erreurs
@@ -54,11 +55,8 @@ function M.config()
       header = "",
       prefix = "",
     },
-  }
-  
-  -- Applique la configuration de diagnostics
-  vim.diagnostic.config(default_diagnostic_config)
-  -- Maintenant, configure les diagnostics pour n'afficher que les erreurs
+  })
+
   vim.diagnostic.config({
     float = {
        severity = { min = vim.diagnostic.severity.ERROR },

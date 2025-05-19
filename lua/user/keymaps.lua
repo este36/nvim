@@ -41,6 +41,8 @@ KEYMAP("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>:lua vim.notify(
 
 KEYMAP("n", "<leader>r", ":source %<CR>")
  -- KEYMAP("n", "<leader>x", "<cmd>!chmod +x %<CR>")
+KEYMAP("n", "<leader>h", "*#V:s///g<left><left>")
+KEYMAP("n", "<leader>H", "*#:%s///g<left><left>")
 
 KEYMAP("n", "<leader>t", ":tabnew<CR>", OPTS)
 KEYMAP("n", "<leader>T", ":tabnew<CR>:term<CR>i", OPTS)
