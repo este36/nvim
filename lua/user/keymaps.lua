@@ -62,21 +62,21 @@ KEYMAP("n", "<C-Right>", ":vertical resize -3<CR>", OPTS)
 
 -- KEYMAP("n", "<Leader>e", ":Lex <CR>")
 
-KEYMAP("i", "'", "''<left>", OPTS)
-KEYMAP("i", "'<CR>", "'", OPTS)
-
-KEYMAP("i", "\"", "\"\"<left>", OPTS)
-KEYMAP("i", "\"<CR>", "\"", OPTS)
-
-KEYMAP("i", "(", "()<left>", OPTS)
-KEYMAP("i", "()", "()", OPTS)
-KEYMAP("i", "(<CR>", "(", OPTS)
-
-KEYMAP("i", "[", "[]<left>", OPTS)
-KEYMAP("i", "[]", "[]", OPTS)
-KEYMAP("i", "[<CR>", "[", OPTS)
-
-KEYMAP("i", "{", "{}<left>", OPTS)
+-- KEYMAP("i", "'", "''<left>", OPTS)
+-- KEYMAP("i", "'<CR>", "'", OPTS)
+-- 
+-- KEYMAP("i", "\"", "\"\"<left>", OPTS)
+-- KEYMAP("i", "\"<CR>", "\"", OPTS)
+-- 
+-- KEYMAP("i", "(", "()<left>", OPTS)
+-- KEYMAP("i", "()", "()", OPTS)
+-- KEYMAP("i", "(<CR>", "(", OPTS)
+-- 
+-- KEYMAP("i", "[", "[]<left>", OPTS)
+-- KEYMAP("i", "[]", "[]", OPTS)
+-- KEYMAP("i", "[<CR>", "[", OPTS)
+-- 
+-- KEYMAP("i", "{", "{}<left>", OPTS)
 
 -- KEYMAP("i", "/*", "/**/<left><left>", OPTS)
 

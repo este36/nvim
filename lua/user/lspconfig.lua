@@ -76,6 +76,9 @@ function M.config()
     local opts = {
       on_attach = M.on_attach,
       capabilities = M.common_capabilities(),
+      document_highlight = {
+          enabled = false,
+      },
     }
 
     local require_ok, settings = pcall(require, "user.lspsettings." .. server)
