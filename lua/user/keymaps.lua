@@ -90,3 +90,5 @@ KEYMAP("v", "<A-j>", ":m '>+1<CR>gv=gv", OPTS)  -- Déplacer vers le bas
 KEYMAP("v", "<leader>r", "\"hy:%s/<C-r>h//g<left><left>", OPTS)
 KEYMAP("v", "<leader>s", ":s//g<left><left>", OPTS)
 KEYMAP("v", "<C-s>", ":sort<CR>", OPTS)
+
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
